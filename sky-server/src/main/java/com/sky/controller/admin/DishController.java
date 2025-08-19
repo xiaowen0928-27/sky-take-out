@@ -65,6 +65,13 @@ public class DishController {
         return Result.success();
     }
 
+    /**
+     * 起售、停售菜品
+     *
+     * @param status 状态
+     * @param id     菜品id
+     * @return Result
+     */
     @PostMapping("/status/{status}")
     @ApiOperation("起售、停售菜品")
     public Result<T> startOrStop(@PathVariable Integer status, Long id) {
