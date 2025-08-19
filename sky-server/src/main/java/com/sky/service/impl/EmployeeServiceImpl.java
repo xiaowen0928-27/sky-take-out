@@ -31,7 +31,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     /**
      * 员工登录
-     *
      */
     public Employee login(EmployeeLoginDTO employeeLoginDTO) {
         String username = employeeLoginDTO.getUsername();
@@ -64,7 +63,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     /**
      * 新增员工
-     *
      */
     @Override
     public void save(EmployeeDTO employeeDTO) {
@@ -94,6 +92,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     /**
      * 分页查询员工信息
+     *
      * @param employeePageQueryDTO 员工分页查询条件封装对象
      * @return 分页结果数据
      */
@@ -111,8 +110,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     /**
      * 启用禁用员工账号
+     *
      * @param status 1启用 0禁用
-     * @param id 员工id
+     * @param id     员工id
      */
     @Override
     public void startOrStop(Integer status, Long id) {
