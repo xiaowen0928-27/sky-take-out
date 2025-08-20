@@ -63,10 +63,14 @@ public class DishServiceImpl implements DishService {
             flavors.forEach(dishFlavor -> dishFlavor.setDishId(dishId));
             dishFlavorMapper.insertBatch(flavors);
         }
-
-
     }
 
+    /**
+     * 菜品分页查询
+     *
+     * @param dishPageQueryDTO 菜品分页查询参数
+     * @return 菜品分页查询结果
+     */
     @Override
     public PageResult pageQuery(DishPageQueryDTO dishPageQueryDTO) {
         PageHelper.startPage(dishPageQueryDTO.getPage(), dishPageQueryDTO.getPageSize());
@@ -145,5 +149,14 @@ public class DishServiceImpl implements DishService {
             flavors.forEach(dishFlavor -> dishFlavor.setDishId(dishDTO.getId()));
             dishFlavorMapper.insertBatch(flavors);
         }
+    }
+
+    @Override
+    public List<Dish> list(Long categoryId) {
+        Dish dish = Dish.builder()
+                .status(StatusConstant.ENABLE)
+                .categoryId(categoryId)
+                .build();
+        return dishMapper.list(dish);
     }
 }
