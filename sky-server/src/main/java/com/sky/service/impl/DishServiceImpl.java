@@ -78,6 +78,11 @@ public class DishServiceImpl implements DishService {
         return new PageResult(page.getTotal(), page.getResult());
     }
 
+    /**
+     * 批量删除菜品
+     *
+     * @param ids 菜品id
+     */
     @Override
     @Transactional
     public void deleteBatch(List<Long> ids) {
@@ -101,6 +106,12 @@ public class DishServiceImpl implements DishService {
         }
     }
 
+    /**
+     * 起售、停售菜品
+     *
+     * @param status 起售、停售状态
+     * @param id     菜品id
+     */
     @Override
     public void startOrStop(Integer status, Long id) {
 
